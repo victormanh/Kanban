@@ -79,7 +79,7 @@
                     text-transform: uppercase;
                     margin-bottom: 20px;
 
-                    .title{
+                    .title {
                         margin: 0;
                     }
 
@@ -93,41 +93,47 @@
     flex-grow: 1;
 }
 
-.new-task-btn{
+.new-task-btn {
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 4px;
 }
 
 .task {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    background: rgba(grey, 0.2);
+    background: grey;
     cursor: pointer;
-
-    &:hover {
-        background: rgba(grey, 0.3);
-    }
-
-    // .task-title{
-    //     font-size: 16px;
-    //     font-weight: bold;
-    //     font-family: 'Lato', sans-serif;
-    //     color: black;
-    //     margin-left: 10px;
-    // }
-
-    // .task-description{
-    //     font-size: 14px;
-    //     font-family: 'Lato', sans-serif;
-    //     color: black;
-    //     margin-left: 10px;
-    // }
+    margin-bottom: 10px;
 }
+
+// .task {
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     padding: 10px;
+//     margin-bottom: 10px;
+//     border-radius: 4px;
+//     background: rgba(grey, 0.2);
+//     cursor: pointer;
+
+//     &:hover {
+//         background: rgba(grey, 0.3);
+//     }
+
+// .task-title{
+//     font-size: 16px;
+//     font-weight: bold;
+//     font-family: 'Lato', sans-serif;
+//     color: black;
+//     margin-left: 10px;
+// }
+
+// .task-description{
+//     font-size: 14px;
+//     font-family: 'Lato', sans-serif;
+//     color: black;
+//     margin-left: 10px;
+// }
+// }
 
 .cdk-drag-preview {
     box-sizing: border-box;
@@ -135,6 +141,7 @@
     box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
         0 8px 10px 1px rgba(0, 0, 0, 0.14),
         0 3px 14px 2px rgba(0, 0, 0, 0.12);
+    margin-bottom: 0;
 }
 
 .cdk-drag-placeholder {
@@ -143,4 +150,8 @@
 
 .cdk-drag-animating {
     transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.title-chip {
+    overflow: hidden;
 }

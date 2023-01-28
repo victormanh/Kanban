@@ -1,4 +1,9 @@
 export interface IColumn {
     name: string;
-    tasks: string[];
+    tasks: ITask[];
+}
+
+export interface ITask{
+    taskName: string;
+    taskDescription: string;
 }
