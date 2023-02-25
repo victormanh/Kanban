@@ -10,6 +10,12 @@
     font-weight: bold;
 }
 
+.toolbar-main{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 .has-gradient-text {
     background: -webkit-linear-gradient(#13f7f4, #2af598);
     background-clip: text;
@@ -78,11 +84,13 @@
                     font-family: 'Lato', sans-serif;
                     text-transform: uppercase;
                     margin-bottom: 20px;
+                    
+                    .column-title-left{
 
-                    .title {
-                        margin: 0;
+                        .title-chip{
+                            margin: 3px;
+                        }
                     }
-
                 }
             }
         }
@@ -91,49 +99,28 @@
 
 .tasks-container {
     flex-grow: 1;
+    &:not(:last-child) {
+        margin-bottom: 10px;
+    }
+    .new-task-btn {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 4px;
+    }
+
+    .task-accordion {
+        background: rgba(grey, 0.2);
+        cursor: pointer;
+        margin-bottom: 10px;
+        .mat-expansion-panel{
+            margin-bottom:.25rem;
+            .mat-expansion-panel-header {
+                padding-left: 24px;
+                padding-right: 5px;
+            }
+        }
+    }
 }
-
-.new-task-btn {
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-}
-
-.task {
-    background: grey;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
-// .task {
-//     display: flex;
-//     flex-direction: row;
-//     align-items: center;
-//     padding: 10px;
-//     margin-bottom: 10px;
-//     border-radius: 4px;
-//     background: rgba(grey, 0.2);
-//     cursor: pointer;
-
-//     &:hover {
-//         background: rgba(grey, 0.3);
-//     }
-
-// .task-title{
-//     font-size: 16px;
-//     font-weight: bold;
-//     font-family: 'Lato', sans-serif;
-//     color: black;
-//     margin-left: 10px;
-// }
-
-// .task-description{
-//     font-size: 14px;
-//     font-family: 'Lato', sans-serif;
-//     color: black;
-//     margin-left: 10px;
-// }
-// }
 
 .cdk-drag-preview {
     box-sizing: border-box;

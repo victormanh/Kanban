@@ -14,7 +14,24 @@ import { IColumn, ITask } from 'src/app/models/column.model';
 })
 
 export class KanbanViewComponent implements OnInit {
-  public board: IBoard =
+  public board: IBoard= {
+    name: 'Test Board',
+    columns: [
+      {
+        name: 'toDo',
+        tasks: []
+      },
+      {
+        name: 'inProgess',
+        tasks: []
+      },
+      {
+        name: 'Done',
+        tasks: []
+      }
+    ]
+  }
+  public boards: IBoard[] = [
     {
       name: 'Test Board',
       columns: [
@@ -31,7 +48,29 @@ export class KanbanViewComponent implements OnInit {
           tasks: []
         }
       ]
+    },
+
+    {
+      name: 'Test Board 2',
+      columns: [
+        {
+          name: 'toDo',
+          tasks: []
+        },
+        {
+          name: 'inProgess',
+          tasks: []
+        },
+        {
+          name: 'Done',
+          tasks: []
+        }
+      ]
     }
+    
+  ]
+
+    
 
   // public newColumnName: string = '';
   public currentColumn: string = '';

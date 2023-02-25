@@ -1,27 +1,35 @@
 <div class="root">
-    <div class="navbar has-background-dark">
-        <div class="navbar-brand">
-            <div class="navbar-item">
-                <h1 class="app-name has-gradient-text">
-                    Kanban Board
-                </h1>
-            </div>
-        </div>
-    </div>
+    <mat-toolbar class="toolbar">
+        <mat-toolbar-row class="toolbar-main">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span class="app-name has-gradient-text">Kanban</span>
+        </mat-toolbar-row>
+        <mat-toolbar-row class="kanban-toolbar">
+            <span>{{board.name}}</span>
+            <button mat-icon-button matTooltip="Create new board" class="add-icon">
+                <mat-icon>add</mat-icon>
+            </button>
+        </mat-toolbar-row>
+    </mat-toolbar>
     <div class="board">
-
         <div class="board-bar">
-            <p class="board-name">{{board.name}}</p>
             <button mat-raised-button color="is-primary" (click)="openColumnDialog()">New Column</button>
         </div>
-        <div class="board-wrapper" cdkDropList cdkDropListOrientation="horizontal" (cdkDropListDropped)="columnDrop($event)">
+        <div class="board-wrapper" cdkDropList cdkDropListOrientation="horizontal"
+            (cdkDropListDropped)="columnDrop($event)">
             <div class="board-columns" cdkDropListGroup>
                 <div class="board-column" *ngFor="let column of board.columns" cdkDrag>
                     <div class="column-title">
-                        <!-- <p class="title">{{column.name}}</p> -->
-                        <mat-chip class="title-chip">
-                            {{column.name.toLocaleUpperCase()}}
-                        </mat-chip>
+                        <div class="column-title-left">
+                            <mat-chip class="title-chip">
+                                {{column.name.toLocaleUpperCase()}}
+                            </mat-chip>
+                            <mat-chip class="task-count-chip">
+                                {{column.tasks.length}}
+                            </mat-chip>
+                        </div>
                         <button mat-icon-button color="is-primary" (click)="deleteColumn(column.name)">
                             <mat-icon>delete</mat-icon>
                         </button>
@@ -32,11 +40,9 @@
                             (click)="openNewTaskDialog(column.name)">
                             +
                         </button>
-                        <!-- <div class="task" *ngFor="let task of column.tasks" cdkDrag>
-                            {{task.taskName}}
-                        </div> -->
-                        <mat-accordion class="task-accordion" *ngFor="let task of column.tasks" cdkDrag>
-                            <mat-expansion-panel class="task" hideToggle>
+                        <mat-accordion class="task-accordion">
+                            <mat-expansion-panel class="task" *ngFor="let task of column.tasks" hideToggle
+                                displayMode="default" cdkDrag>
                                 <mat-expansion-panel-header>
                                     <mat-panel-title>
                                         {{task.taskName}}
@@ -44,15 +50,10 @@
                                     <button mat-icon-button color="is-primary" (click)="deleteTask(task.taskName)">
                                         <mat-icon>delete</mat-icon>
                                     </button>
-
-                                    <!-- <mat-panel-description>
-                                  click to expand
-                                </mat-panel-description> -->
                                 </mat-expansion-panel-header>
                                 <p>{{task.taskDescription}}</p>
                             </mat-expansion-panel>
                         </mat-accordion>
-
                     </div>
                 </div>
             </div>
