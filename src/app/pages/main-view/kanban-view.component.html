@@ -8,7 +8,7 @@
         </mat-toolbar-row>
         <mat-toolbar-row class="kanban-toolbar">
             <span>{{board.name}}</span>
-            <button mat-icon-button matTooltip="Create new board" class="add-icon">
+            <button mat-icon-button matTooltip="Create new board" class="add-icon" (click)="createNewBoard('hi')">
                 <mat-icon>add</mat-icon>
             </button>
         </mat-toolbar-row>
