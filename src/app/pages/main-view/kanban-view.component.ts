@@ -164,8 +164,15 @@ export class KanbanViewComponent implements OnInit {
   }
 
   public createNewBoard(boardName: string){
-    this.boards.push({'name': boardName, 'columns': []})
-    this.openBoard();
+    let currentBoards: string[] = [];
+    for (const board of this.boards){
+      currentBoards.push(board.name);
+    }
+    if(!(currentBoards.includes(boardName))){
+      this.boards.push({'name': boardName, 'columns': []});
+    } else {
+      this.toastrService.warning('Board already exists', 'Warning');
+    }
   }
 
   public openBoard(){
