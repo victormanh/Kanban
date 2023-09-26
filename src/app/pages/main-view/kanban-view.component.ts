@@ -6,6 +6,7 @@ import { NewColumnDialogComponent } from './new-column-dialog/new-column-dialog.
 import { ToastrService } from 'ngx-toastr';
 import { NewTaskDialogComponent } from './new-task-dialog/new-task-dialog.component';
 import { IColumn, ITask } from 'src/app/models/column.model';
+import { bootstrapApplication } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-kanban-view',
@@ -69,12 +70,7 @@ export class KanbanViewComponent implements OnInit {
     }
     
   ]
-
-    
-
-  // public newColumnName: string = '';
   public currentColumn: string = '';
-  // public newTask: ITask = {taskName: '', taskDescription: ''}
 
   constructor(
     public dialog: MatDialog,
@@ -165,6 +161,23 @@ export class KanbanViewComponent implements OnInit {
     if (indexOfObject !== -1) {
       this.board.columns.splice(indexOfObject, 1);
     }
+  }
+
+  public createNewBoard(boardName: string){
+    let currentBoards: string[] = [];
+    for (const board of this.boards){
+      currentBoards.push(board.name);
+    }
+    if(!(currentBoards.includes(boardName))){
+      this.boards.push({'name': boardName, 'columns': []});
+    } else {
+      this.toastrService.warning('Board already exists', 'Warning');
+    }
+  }
+
+  public openBoard(){
+    let toOpen = this.boards.filter(b => b.name === 'hi' );
+    this.board = toOpen[0];
   }
 
 }
